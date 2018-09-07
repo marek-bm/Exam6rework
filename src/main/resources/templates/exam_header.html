@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Exam 6 - layout content</h1>
+<a th:href="@{/panel}"> home page </a>
+
+<div layout:fragment="login"/>
+<div layout:fragment="panel"/>
+<div layout:fragment="link"/>
+
+<div layout:fragment="logout"/>
+
+<div layout:fragment="add-post"/>
+
+<div layout:fragment="add-tag"/>
+
+<div layout:fragment="all-tags"/>
+
+<div layout:fragment="postsByTag"/>
+<div layout:fragment="Tag"/>
+
+</body>
+</html>

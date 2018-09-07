@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="exam_header">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="add-post">
+    <form th:action="@{/post/add}" method="post" th:object="${post}">
+        <p>Title: <input type="text" th:field="*{title}"/></p>
+        <p>Content: <input type="text" th:field="*{content}"/></p>
+        <p>Select tags:
+
+            <select th:field="*{tags}">
+                <option th:each="tag:${tags}"
+                        th:value="${tag.id}"
+                        th:text="${tag.name}">
+                </option>
+            </select>
+        </p>
+        <p> <input type="submit" value="Save Post"/> </p>
+
+    </form>
+</div>
+
+</body>
+</html>

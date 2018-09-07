@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="exam_header"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="panel">
+
+    <h2>Panel section </h2>
+
+    <p sec:authorize="isAuthenticated()">
+    <p>Zalogowany jako: <span sec:authentication="name"></span></p>
+    <p>Posiada role: <span sec:authentication="authorities"></span></p>
+    </p>
+
+
+    <ul>
+        <li><a th:href="@{/tag/add}">Add new tag</a></li>
+        <li><a th:href="@{/tag/all}">Tag list</a></li>
+        <li><a th:href="@{/post/add}">Add new post</a></li>
+    </ul>
+
+    <span sec:authorize="isAuthenticated()">
+    <form th:action="@{/logoutpage}" method="post">
+        <input type="submit" value="Wyloguj"/>
+    </form>
+</span>
+</div>
+
+
+</body>
+</html>
